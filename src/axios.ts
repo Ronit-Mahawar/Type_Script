@@ -1,0 +1,26 @@
+import axios from "axios";
+import type { AxiosResponse } from "axios";
+
+interface Todo{
+    userId:string;
+    id:number;
+    title:string;
+    completed:boolean
+}
+
+const fetchData = async()=>{
+
+
+    try {
+        const response:AxiosResponse<Todo>=await axios.get("https://jsonplaceholder.typicode.com/todos/1")
+        console.log("data:",response.data);
+    } catch (error) {
+       if(axios.isAxiosError(error)){
+        console.log("Axios error:",error.message);
+        if(error.response){
+            console.log(error.response.status)
+        }
+       }
+    }
+}
+fetchData();
