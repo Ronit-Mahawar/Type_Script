@@ -24,3 +24,8 @@ function serve(chai: kulladChai | CuttingChai){
         return chai.serve()
     }
 }
+
+type ChaiOrder={
+    type:string
+    suger:number
+}
